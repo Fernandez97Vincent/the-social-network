@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Thought } = require('../../models');
-const { findOneAndDelete } = require('../../models/User');
+// const { findOneAndDelete } = require('../../models/User');
 
 router.get('/', async (req, res) => {
     try {
@@ -88,7 +88,7 @@ router.post("/:userId/friends/:friendId", async(req, res) => {
         }
         res.status(200).json(dbUserData);
     } catch(err) {
-        
+
     }
 })
 

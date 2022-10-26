@@ -8,9 +8,9 @@ const apiRoute = require('./api');
 router.use('/api', apiRoute);
 
 // 404 error
-router.use((req, res) => {
-    res.status(404).send('404 Error')
-});
+// router.use((req, res) => {
+//     res.status(404).send('404 Error')
+// });
 
 // export
 module.exports = router;
