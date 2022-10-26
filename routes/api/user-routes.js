@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Thought } = require('../../models');
-// const { findOneAndDelete } = require('../../models/User');
+const { findOneAndDelete } = require('../../models/User');
 
 router.get('/', async (req, res) => {
     try {
@@ -63,7 +63,7 @@ router.put('/:userId', async(req, res) => {
 // delete user id
 router.delete('/:userId', async(req, res) => {
     try {
-        const dbUserData = await findOneAndDelete({ _id: req.params.userId })
+        const dbUserData = await User.findOneAndDelete({ _id: req.params.userId })
         if(!dbUserData) {
             return res.status(404).json({ message: 'No user with the given ID'})
         }
@@ -88,7 +88,7 @@ router.post("/:userId/friends/:friendId", async(req, res) => {
         }
         res.status(200).json(dbUserData);
     } catch(err) {
-
+        
     }
 })
 
