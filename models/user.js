@@ -14,6 +14,7 @@ const userSchema = new Schema(
             unique: true,
             required: true,
             // create match later using regex
+            match: [/.+@.+\..+/, 'Must watch an email address']
         },
 
         thoughts: [{
@@ -23,17 +24,16 @@ const userSchema = new Schema(
 
         friends: [{
             type: Schema.Types.ObjectId,
-            ref: 'Users'
+            ref: 'User',
         }]
     },
     {
         toJSON: {
             virtuals: true,
-            getters: true,
         },
-        id: false
+        id: false,
     }
-)
+);
 
 // get friend count
 
@@ -42,7 +42,7 @@ userSchema.virtual('totalFriends').get(function() {
     return this.friends.length;
 })
 
-const Users = model('user', userSchema);
+const User = model('User', userSchema);
 
 //export ^^
-module.exports = Users;
+module.exports = User;

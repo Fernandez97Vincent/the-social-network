@@ -1,14 +1,14 @@
 // require express
-const router = require('express');
+const router = require('express').Router();
 
 // import api routes
 const apiRoute = require('./api');
 
 // add api to search /api
-router.user('/api', apiRoute);
+router.use('/api', apiRoute);
 
 // 404 error
-router.user((req, res) => {
+router.use((req, res) => {
     res.status(404).send('404 Error')
 });
 

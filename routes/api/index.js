@@ -5,11 +5,13 @@ const router = require('express').Router();
 const thoughtRoute = require('./thought-routes');
 const userRoute = require('./user-routes');
 
-// use /users
-router.use('/user', userRoute);
 
 // use /thought
 router.use('/thoughts', thoughtRoute);
+// use /users
+router.use('/user', userRoute);
+
+
 
 // export
 module.exports = router;
