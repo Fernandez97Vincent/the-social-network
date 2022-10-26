@@ -88,7 +88,7 @@ router.post("/:userId/friends/:friendId", async(req, res) => {
         }
         res.status(200).json(dbUserData);
     } catch(err) {
-
+        
     }
 })
 
